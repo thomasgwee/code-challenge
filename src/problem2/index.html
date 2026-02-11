@@ -1,27 +1,47 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fancy Form</title>
-
-  <!-- You may add more stuff here -->
-  <link href="style.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fancy Swap</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- You may reorganise the whole HTML, as long as your form achieves the same effect. -->
-  <form onsubmit="return !1">
-    <h5>Swap</h5>
-    <label for="input-amount">Amount to send</label>
-    <input id="input-amount" />
+    <div class="swap-card">
+        <h5>Swap</h5>
+        
+        <form id="swap-form" onsubmit="return false">
+            <div class="input-group">
+                <label>Amount to send</label>
+                <div class="input-container">
+                    <img id="input-icon" class="token-icon" src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/ETH.svg" alt="token">
+                    <input type="number" id="input-amount" placeholder="0.00" step="any">
+                    <select id="input-token"></select>
+                </div>
+            </div>
 
-    <label for="output-amount">Amount to receive</label>
-    <input id="output-amount" />
+            <div class="divider">
+                <button type="button" id="switch-button" title="Switch tokens">⇅</button>
+            </div>
 
-    <button>CONFIRM SWAP</button>
-  </form>
-  <script src="script.js"></script>
+            <div class="input-group">
+                <label>Amount to receive</label>
+                <div class="input-container">
+                    <img id="output-icon" class="token-icon" src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/USDC.svg" alt="token">
+                    <input type="number" id="output-amount" placeholder="0.00" readonly>
+                    <select id="output-token"></select>
+                </div>
+            </div>
+
+            <div class="price-info">
+                <span id="rate-text">Loading market prices...</span>
+            </div>
+
+            <button type="submit" id="confirm-button">CONFIRM SWAP</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
 </body>
-
 </html>
